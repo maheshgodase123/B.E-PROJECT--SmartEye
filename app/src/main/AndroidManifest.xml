@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.imageclassifier">
 
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -16,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImageClassifier"
         tools:targetApi="31">
+        <activity
+            android:name=".ImageRecognition"
+            android:exported="false"
+            android:label="imageactivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
