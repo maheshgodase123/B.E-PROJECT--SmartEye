@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1019691887623",
+    "project_id": "textdetectionforsmarteye",
+    "storage_bucket": "textdetectionforsmarteye.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019691887623:android:144b3ceb3567aa3eb04ea2",
+        "android_client_info": {
+          "package_name": "com.example.imageclassifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019691887623-me1dcbfg27m5h3pi9q4v5kq6gpd6pe2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMQ0rx3PVOEmanIBQc6ze7vynvDZOvIDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019691887623-me1dcbfg27m5h3pi9q4v5kq6gpd6pe2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

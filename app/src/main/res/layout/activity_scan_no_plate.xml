@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScanNoPlate">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Capture/Select Image To Scan"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/NoPlateimageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal = "true"
+        android:layout_marginTop = "40dp"
+        android:layout_below = "@id/NoPlateimageView"
+        android:text="Capture"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below = "@id/button1"
+        android:layout_marginTop = "15dp"
+        android:text="select"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button2"
+        android:layout_marginTop = "15dp"
+        android:text="Detect"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/NoPlateresult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="MH14 2003"
+        android:textSize="22dp"
+        android:layout_below="@id/verify"
+        android:layout_marginTop = "20dp"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

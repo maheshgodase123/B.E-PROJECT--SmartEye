@@ -20,4 +20,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ImageRecognition.class);
         startActivity(intent);
     }
+    public void openActivityNoPlate(View v)
+    {
+        Toast.makeText(this, "Opening Image Activity", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,ScanNoPlate.class);
+        startActivity(intent);
+    }
 }
