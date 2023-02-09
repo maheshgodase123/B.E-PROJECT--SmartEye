@@ -14,16 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void openActivity(View v)
+    public void openScanningActivity(View v)
     {
-        Toast.makeText(this, "Opening Image Activity", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,ImageRecognition.class);
-        startActivity(intent);
-    }
-    public void openActivityNoPlate(View v)
-    {
-        Toast.makeText(this, "Opening Image Activity", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,ScanNoPlate.class);
+        Toast.makeText(this, "Opening Scanning Activity", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,activity_scanning.class);
         startActivity(intent);
     }
 }

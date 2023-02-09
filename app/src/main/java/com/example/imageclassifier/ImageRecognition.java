@@ -1,6 +1,8 @@
 package com.example.imageclassifier;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +19,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,7 +47,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-public class ImageRecognition extends AppCompatActivity {
+public class ImageRecognition extends AppCompatActivity{
 
     // this below function is written before oncreate bcoz app was calling oncreate function before
     // loading the OpenCv so it was giving error to the Mat lib in OpenCv i.e
@@ -84,10 +87,11 @@ public class ImageRecognition extends AppCompatActivity {
         }
     }
 
-    Button selectBtn, captureBtn, verifyBtn;
+    Button selectBtn, captureBtn, verifyBtn, confirm;
     ImageView imageView;
-    TextView result;
+    EditText result;
     Bitmap bitmap;      // for storing image
+    Boolean isFaceDetected = false;
     // below variables use for Loading Classifier Model in detect_Face
     CascadeClassifier cascadeClassifier;    // declaring object of cascadeClassifier
     int height = 0;
@@ -105,6 +109,7 @@ public class ImageRecognition extends AppCompatActivity {
         verifyBtn = findViewById(R.id.verifybtn);
         result = findViewById(R.id.result);
         imageView = findViewById(R.id.imageView);
+        confirm = findViewById(R.id.confirmImage);
 
         // Basically in above R is Resources of our app so it contains all things we have added
 
@@ -150,80 +155,92 @@ public class ImageRecognition extends AppCompatActivity {
         verifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(isFaceDetected)
+                {
+                    try {
+                        //FaceRecModel model = FaceRecModel.newInstance(getApplicationContext());
+                        Model2 model = Model2.newInstance(ImageRecognition.this);
+                        // Creates inputs for reference.
+                        TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
 
-                try {
-                    //FaceRecModel model = FaceRecModel.newInstance(getApplicationContext());
-                    Model2 model = Model2.newInstance(ImageRecognition.this);
-                    // Creates inputs for reference.
-                    TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+                        int image_size = 224;
 
-                    int image_size = 224;
+                        bitmap = Bitmap.createScaledBitmap(bitmap,image_size,image_size,false);
 
-                    bitmap = Bitmap.createScaledBitmap(bitmap,image_size,image_size,false);
+                        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * image_size * image_size * 3);
 
-                    ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * image_size * image_size * 3);
+                        byteBuffer.order(ByteOrder.nativeOrder());
 
-                    byteBuffer.order(ByteOrder.nativeOrder());
+                        int[] intValues = new int[image_size * image_size];
 
-                    int[] intValues = new int[image_size * image_size];
+                        bitmap.getPixels(intValues,0, bitmap.getWidth(),0,0,bitmap.getWidth(),bitmap.getHeight());
 
-                    bitmap.getPixels(intValues,0, bitmap.getWidth(),0,0,bitmap.getWidth(),bitmap.getHeight());
+                        int pixel = 0;
 
-                    int pixel = 0;
+                        //iterate over each pixel and extract R,G,B. Add those value individually to the byte buffer.
 
-                    //iterate over each pixel and extract R,G,B. Add those value individually to the byte buffer.
-
-                    for(int i = 0; i < image_size; i++)
-                    {
-                        for(int j = 0; j < image_size; j++)
+                        for(int i = 0; i < image_size; i++)
                         {
-                            int val = intValues[pixel++];  //RGB
-                            byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255));
-                            byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255));
-                            byteBuffer.putFloat((val & 0xFF) * (1.f / 255));
+                            for(int j = 0; j < image_size; j++)
+                            {
+                                int val = intValues[pixel++];  //RGB
+                                byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255));
+                                byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255));
+                                byteBuffer.putFloat((val & 0xFF) * (1.f / 255));
+                            }
                         }
+                        inputFeature0.loadBuffer(byteBuffer);
+
+                        // Runs model inference and gets result.
+
+                        Model2.Outputs outputs = model.process(inputFeature0);
+
+                        TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+
+                        float[] confidence_value = outputFeature0.getFloatArray();
+
+                        //String [] labels = {"Courteney_Cox", "Jennifer_Aniston", "Lisa_Kudrow"};
+
+                        String id = "";
+                        if(confidence_value[0] <= 0.2)
+                        {
+                            id = "Courteney Cox";
+                        }
+                        else if(confidence_value[0] >= 1 && confidence_value[0] <= 1.4)
+                        {
+                            id = "Jennifer Aniston";
+                        }
+                        else if(confidence_value[0] >= 2 && confidence_value[0] <= 2.2)
+                        {
+                            id = "Lisa Kudrow";
+                        }
+                        else
+                        {
+                            id = "Cant Recognize";
+                        }
+
+                        result.setText(id + "");
+                        // Releases model resources if no longer used.
+                        model.close();
+
+                    } catch (IOException e) {
+                        // TODO Handle the exception
                     }
-                    inputFeature0.loadBuffer(byteBuffer);
-
-                    // Runs model inference and gets result.
-
-                    Model2.Outputs outputs = model.process(inputFeature0);
-
-                    TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
-
-                    float[] confidence_value = outputFeature0.getFloatArray();
-
-                    //String [] labels = {"Courteney_Cox", "Jennifer_Aniston", "Lisa_Kudrow"};
-
-                    String id = "";
-                    if(confidence_value[0] <= 0.5)
-                    {
-                        id = "Courteney_Cox";
-                    }
-                    else if(confidence_value[0] >= 1 && confidence_value[0] <= 1.5)
-                    {
-                        id = "Jennifer_Aniston";
-                    }
-                    else if(confidence_value[0] >= 2 && confidence_value[0] <= 2.5)
-                    {
-                        id = "Lisa_Kudrow";
-                    }
-                    else
-                    {
-                        id = "cant recognize";
-                    }
-
-                    result.setText(id + "");
-
-                    // Releases model resources if no longer used.
-                    model.close();
-
-                } catch (IOException e) {
-                    // TODO Handle the exception
                 }
+                else
+                {
+                    result.setText("Face Not Detected!!");
+                }
+            }
+        });
 
-
-
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("ImageResult", result.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
@@ -294,8 +311,8 @@ public class ImageRecognition extends AppCompatActivity {
                     // if detectFace will return null so bitmap will be not set to detected face so original bitmap image will be send to model
                     {
                         bitmap = detected_face;
+                        isFaceDetected = true;
                     }
-
                     // after getting image in bitmap set it in our imageview
 
                 } catch (IOException e) {
@@ -317,9 +334,8 @@ public class ImageRecognition extends AppCompatActivity {
             if(detected_face != null)   // this is becouse if no face is detected then face_rec model will throw error and app stops
             {
                 bitmap = detected_face;
+                isFaceDetected = true;
             }
-
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -413,4 +429,6 @@ public class ImageRecognition extends AppCompatActivity {
 
     // now we have to code for capture image so for that we required to give permission to camera
     // so open manifest and give permission
+
+
 }

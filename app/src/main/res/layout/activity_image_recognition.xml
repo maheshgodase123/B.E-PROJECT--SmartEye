@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C5D0FF"
     tools:context=".ImageRecognition">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Image Classify"
-        android:id="@+id/title"
-        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Select/Capture Image To Verify"
         android:textAlignment="center"
-        android:layout_marginTop="20dp" />
+        android:textSize="22dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -51,14 +54,25 @@
         android:layout_marginTop="20dp" />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Results"
+    <EditText
         android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/verifybtn"
-        android:textSize="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="Results"
         android:textAlignment="center"
-        android:layout_marginTop="40dp" />
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/confirmImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Confirm" />
+
 
 </RelativeLayout>

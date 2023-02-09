@@ -4,7 +4,7 @@
     package="com.example.imageclassifier">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -17,15 +17,19 @@
         android:theme="@style/Theme.ImageClassifier"
         tools:targetApi="31">
         <activity
+            android:name=".activity_scanning"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ScanNoPlate"
             android:exported="false"
             android:label="Verify NumberPlate"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activity_scanning" />
         <activity
             android:name=".ImageRecognition"
             android:exported="false"
             android:label="ImageVerification"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".activity_scanning" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

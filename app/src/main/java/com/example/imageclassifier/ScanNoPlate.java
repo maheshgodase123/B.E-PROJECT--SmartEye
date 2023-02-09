@@ -34,7 +34,7 @@ import java.io.IOException;
 
 public class ScanNoPlate extends AppCompatActivity {
 
-    Button capture, select, detect;
+    Button capture, select, detect, confirm;
     TextView data;
     ImageView NoPlateimageView;
     Bitmap NoPlatebitmap;
@@ -49,6 +49,7 @@ public class ScanNoPlate extends AppCompatActivity {
         detect = findViewById(R.id.verify);
         NoPlateimageView = findViewById(R.id.NoPlateimageView);
         data = findViewById(R.id.NoPlateresult);
+        confirm = findViewById(R.id.confirmNoPlateImage);
 
         capture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +78,16 @@ public class ScanNoPlate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 detectText();
+            }
+        });
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("NoPlateResult", data.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }
@@ -178,4 +189,5 @@ public class ScanNoPlate extends AppCompatActivity {
             }
         });
     }
+
 }
