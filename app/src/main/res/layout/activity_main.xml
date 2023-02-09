@@ -226,12 +226,7 @@
         android:layout_below="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="Logout"
-        android:textColor="@color/white" />
+        android:text="Logout" />
 
 
 </RelativeLayout>
