@@ -19,11 +19,10 @@
         <activity
             android:name=".AboutUs"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activity_scanning"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:exported="false" />
         <activity
             android:name=".ScanNoPlate"
             android:exported="false"
@@ -36,13 +35,29 @@
             android:parentActivityName=".activity_scanning" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"
+            android:parentActivityName=".login"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".login"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter> />
         </activity>
+
+<!--        below was the launching activity before-->
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
