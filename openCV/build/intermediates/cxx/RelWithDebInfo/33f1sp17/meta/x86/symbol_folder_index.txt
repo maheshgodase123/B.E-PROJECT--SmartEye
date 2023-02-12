@@ -1,1 +1,0 @@
-F:\B.E\TFLITE\ImageClassifier\openCV\build\intermediates\cxx\RelWithDebInfo\33f1sp17\obj\x86
