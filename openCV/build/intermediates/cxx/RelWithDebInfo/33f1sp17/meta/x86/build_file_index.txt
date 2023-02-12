@@ -1,1 +1,0 @@
-F:\B.E\TFLITE\ImageClassifier\openCV\libcxx_helper\CMakeLists.txt
