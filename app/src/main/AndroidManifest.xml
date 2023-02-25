@@ -17,6 +17,9 @@
         android:theme="@style/Theme.ImageClassifier"
         tools:targetApi="31">
         <activity
+            android:name=".showDatabase"
+            android:exported="false" />
+        <activity
             android:name=".AboutUs"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
@@ -36,28 +39,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:parentActivityName=".login"/>
-
+            android:parentActivityName=".login" />
         <activity
             android:name=".login"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter> />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-<!--        below was the launching activity before-->
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
     </application>
 
 </manifest>

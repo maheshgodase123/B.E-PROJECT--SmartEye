@@ -132,7 +132,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/VeihicleStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
@@ -143,13 +143,12 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/saveToDatabase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextTextPersonName"
+        android:layout_below="@+id/VeihicleStatus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Submit"
-        />
+        android:text="Submit" />
 
 </RelativeLayout>
