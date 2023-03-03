@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SmartEye</string>
+    <string-array name="STATUS">
+        <item>IN</item>
+        <item>OUT</item>
+    </string-array>
 </resources>
