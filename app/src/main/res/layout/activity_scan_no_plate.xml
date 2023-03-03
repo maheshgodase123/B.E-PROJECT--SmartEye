@@ -61,7 +61,7 @@
         android:layout_below="@id/verify"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:hint="MH 14 JB 8199"
+        android:hint="MH14JB8199"
         android:textSize="22dp" />
 
     <Button

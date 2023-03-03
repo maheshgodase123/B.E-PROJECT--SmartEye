@@ -19,6 +19,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,8 +80,9 @@ public class ScanNoPlate extends AppCompatActivity {
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
     }
+
     Button capture, select, detect, confirm;
-    TextView data;
+    EditText data;
     ImageView NoPlateimageView;
     Bitmap NoPlatebitmap;
 
@@ -129,10 +131,23 @@ public class ScanNoPlate extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("NoPlateResult", data.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
+
+                String detectedNo = data.getText().toString();
+
+                String formattedNumber = noplateFormat(detectedNo);
+
+                if(formattedNumber != null)
+                {
+                    Intent intent = new Intent();
+                    intent.putExtra("NoPlateResult", formattedNumber);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+                else
+                {
+                    Toast.makeText(ScanNoPlate.this, "Invalid Vehicle Number !!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
@@ -257,6 +272,32 @@ public class ScanNoPlate extends AppCompatActivity {
         }
         return null;
     }
+
+    private String noplateFormat(String number)
+    {
+        number.trim();
+        StringBuilder formattedNumber = new StringBuilder();
+
+        for(int i = 0; i < number.length(); i++)
+        {
+            if((number.charAt(i) >= 'a' && number.charAt(i) <= 'z') || (number.charAt(i) >= 'A' && number.charAt(i) <= 'Z'))
+            {
+                formattedNumber.append(number.charAt(i));
+            }
+            else if((number.charAt(i) >= '0' && number.charAt(i) <= '9'))
+            {
+                formattedNumber.append(number.charAt(i));
+            }
+        }
+
+        if(formattedNumber.toString().length() != 10)
+        {
+            return null;
+        }
+
+        return formattedNumber.toString();
+    }
+
     private void detectText()
     {
         Bitmap detectedNoPlate = detectNoPlate(NoPlatebitmap);

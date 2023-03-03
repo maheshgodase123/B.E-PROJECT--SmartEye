@@ -46,6 +46,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Arrays;
 
 public class ImageRecognition extends AppCompatActivity{
 
@@ -160,7 +161,9 @@ public class ImageRecognition extends AppCompatActivity{
                     try {
                         //FaceRecModel model = FaceRecModel.newInstance(getApplicationContext());
                         Model2 model = Model2.newInstance(ImageRecognition.this);
+
                         // Creates inputs for reference.
+                        //TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
                         TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
 
                         int image_size = 224;
@@ -202,24 +205,25 @@ public class ImageRecognition extends AppCompatActivity{
                         //String [] labels = {"Courteney_Cox", "Jennifer_Aniston", "Lisa_Kudrow"};
 
                         String id = "";
-                        if(confidence_value[0] <= 0.2)
+                        if(confidence_value[0] <= 0.5)
                         {
-                            id = "Courteney Cox";
+                            id = "Courteney_Cox";
                         }
-                        else if(confidence_value[0] >= 1 && confidence_value[0] <= 1.4)
+                        else if(confidence_value[0] >= 1 && confidence_value[0] <= 1.5)
                         {
-                            id = "Jennifer Aniston";
+                            id = "Jennifer_Aniston";
                         }
-                        else if(confidence_value[0] >= 2 && confidence_value[0] <= 2.2)
+                        else if(confidence_value[0] >= 2 && confidence_value[0] <= 2.5)
                         {
-                            id = "Lisa Kudrow";
+                            id = "Lisa_Kudrow";
                         }
                         else
                         {
                             id = "Cant Recognize";
                         }
 
-                        result.setText(id + "");
+                        System.out.println(Arrays.toString(confidence_value));
+                        result.setText(id);
                         // Releases model resources if no longer used.
                         model.close();
 
