@@ -10,47 +10,48 @@
     tools:ignore="ExtraText">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="15dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:logo="@drawable/robo1" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="9dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="SmartEye"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     // THIS IS FIRST MENU
 
     // THIS IS SECOND MENU
+
+    <RelativeLayout
+        android:id="@+id/frame"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/imageFilterView"
+            android:layout_width="118dp"
+            android:layout_height="112dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginEnd="114dp"
+            android:layout_marginBottom="7dp"
+            android:foregroundGravity="center_horizontal"
+            app:srcCompat="@drawable/smart_eye_logo" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageFilterView"
+            android:layout_marginStart="73dp"
+            android:layout_marginEnd="77dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="The Vehicle Surveillance System"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="12dp"
+        android:layout_below="@+id/frame"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:padding="10dp"
         tools:layout_editor_absoluteX="0dp">
@@ -60,6 +61,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            app:cardBackgroundColor="#7E8FEE"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -69,11 +71,12 @@
 
                 <ImageButton
                     android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="#FFFFFF"
                     android:cropToPadding="true"
                     android:onClick="openScanningActivity"
                     app:srcCompat="@drawable/face" />
@@ -98,6 +101,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            app:cardBackgroundColor="#7E8FEE"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -107,11 +111,14 @@
 
                 <ImageButton
                     android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="#FFFFFF"
                     android:cropToPadding="true"
+                    android:outlineAmbientShadowColor="#CDAB68"
                     app:srcCompat="@drawable/reports" />
 
                 <TextView
@@ -134,74 +141,39 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:layout_below="@+id/linearLayout"
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0"
+            app:cardBackgroundColor="#7E8FEE"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageButton
-                    android:id="@+id/imageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="130dp"
-                    android:layout_alignParentLeft="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="20dp"
-                    android:adjustViewBounds="false"
-                    android:cropToPadding="true"
-                    app:srcCompat="@drawable/track" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imageButton3"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="sans-serif-black"
-                    android:text="STATUS"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="5dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="190dp"
                 android:layout_height="match_parent">
 
                 <ImageButton
                     android:id="@+id/imageButton4"
                     android:layout_width="wrap_content"
-                    android:layout_height="130dp"
+                    android:layout_height="125dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="#FFFFFF"
                     android:cropToPadding="true"
                     android:onClick="openAboutUsActivity"
-                    app:srcCompat="@drawable/contactus" />
+                    app:srcCompat="@drawable/aboutus2" />
 
                 <TextView
                     android:id="@+id/textView9"
@@ -226,7 +198,10 @@
         android:layout_below="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Logout" />
+        android:backgroundTint="#7E8FEE"
+        android:text="Logout"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

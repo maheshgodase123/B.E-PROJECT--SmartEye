@@ -13,11 +13,11 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Capture/Select Image To Scan"
+        android:fontFamily="sans-serif-black"
+        android:text="Select/Capture Image To Scan"
+        android:textColor="@color/black"
         android:textSize="22dp"
-        android:textStyle="bold"
-         />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/NoPlateimageView"
@@ -34,7 +34,9 @@
         android:layout_below="@id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Capture Image" />
+        android:backgroundTint="#7E8FEE"
+        android:text="Capture Image"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/button2"
@@ -43,7 +45,9 @@
         android:layout_below="@id/NoPlateimageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Select Image" />
+        android:backgroundTint="#7E8FEE"
+        android:text="Select Image"
+        android:textColor="#000000" />
 
     <Button
         android:id="@+id/verify"
@@ -52,7 +56,9 @@
         android:layout_below="@id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Detect" />
+        android:backgroundTint="#7E8FEE"
+        android:text="Detect"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/NoPlateresult"
@@ -62,7 +68,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:hint="MH14JB8199"
-        android:textSize="22dp" />
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/confirmNoPlateImage"
@@ -71,7 +79,8 @@
         android:layout_below="@+id/NoPlateresult"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Confirm" />
-
+        android:backgroundTint="#7E8FEE"
+        android:text="Confirm"
+        android:textColor="#000000" />
 
 </RelativeLayout>

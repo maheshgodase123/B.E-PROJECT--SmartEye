@@ -9,35 +9,52 @@
     tools:context=".activity_scanning"
     tools:ignore="ExtraText">
 
-    <FrameLayout
-        android:layout_width="409dp"
-        android:layout_height="198dp"
+    <RelativeLayout
         android:id="@+id/frame"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        >
+        android:background="#FFFFFF">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/imageFilterView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/images" />
+            android:layout_width="118dp"
+            android:layout_height="112dp"
+            android:layout_marginStart="114dp"
+            android:layout_marginEnd="114dp"
+            android:layout_marginBottom="7dp"
+            android:foregroundGravity="center_horizontal"
+            app:srcCompat="@drawable/smart_eye_logo" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageFilterView"
+            android:layout_marginStart="73dp"
+            android:layout_marginEnd="77dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="The Vehicle Surveillance System"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/frame"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="30dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            app:cardBackgroundColor="#7E8FEE"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -48,10 +65,11 @@
                 <ImageButton
                     android:id="@+id/imageButton8"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="125dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="#C5D0FF"
                     android:cropToPadding="true"
                     app:srcCompat="@drawable/face" />
 
@@ -76,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
+            app:cardBackgroundColor="#7E8FEE"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -86,12 +105,13 @@
                 <ImageButton
                     android:id="@+id/imageButton"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="125dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
+                    android:backgroundTint="#C5D0FF"
                     android:cropToPadding="true"
-                    app:srcCompat="@drawable/nplate3" />
+                    app:srcCompat="@drawable/noplate7" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -108,6 +128,7 @@
                     android:textStyle="bold" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
     <TextView
@@ -118,6 +139,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:hint="Person Name"
+        android:textColor="#010101"
+        android:textColorHint="#000000"
         android:textSize="24dp" />
 
     <TextView
@@ -128,6 +151,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:hint="Number Plate"
+        android:textColor="#010101"
+        android:textColorHint="#000000"
         android:textSize="24dp" />
 
 
@@ -138,8 +163,8 @@
         android:layout_below="@+id/textView5"
         android:layout_marginStart="157dp"
         android:layout_marginTop="25dp"
-        android:textAlignment="center"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/saveToDatabase"
@@ -148,6 +173,8 @@
         android:layout_below="@+id/VeihicleStatus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Submit" />
+        android:backgroundTint="#7E8FEE"
+        android:text="Submit"
+        android:textColor="#000000" />
 
 </RelativeLayout>

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context=".AboutUs">
 
 
     <ImageView
         android:id="@+id/bg_img"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="289dp"
         android:contentDescription="TODO"
         android:scaleType="centerCrop"
 
@@ -32,9 +33,9 @@
         app:cardCornerRadius="12dp">
 
         <RelativeLayout
-            android:id="@+id/relativeAbout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#7E8FEE"
             android:paddingTop="8dp"
             android:paddingBottom="16dp">
 
@@ -42,14 +43,14 @@
                 android:id="@+id/contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_marginStart="22dp"
                 android:layout_marginLeft="22dp"
                 android:fontFamily="sans-serif-black"
-                android:text="ABOUT_APP"
+                android:text="ABOUT APP"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold" />
-
 
 
             <View
@@ -72,13 +73,6 @@
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="330dp"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/lin_1"
@@ -93,190 +87,11 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginTop="0dp"
-                        android:text="STR app for the company/Organisations using SmartEye  "
+                        android:text="SMART EYE APPLICATION IS CREATED FOR THE STAKEHOLDERS WHO WANT TO REMOTELY MONITOR THE ACTIVITES OF THIER VEHICLES AT THEIR PLANT/SITE.THE APPLICATION WILL HELP TO CLOSELY MONITOR THE MOVEMENT OF THE VEHICLES IN AND OUT FROM THE PLANT/SITE. THE VEHICLE AND ITS DRIVER WILL BE VERIFIED BEFORE THEY LEAVE OR ENTER. THE ACTIVITIES WILL BE SAVED AS REPORTS WHICH CAN BE VIEWED BY THE STAKEHOLDER AS REQUIRED."
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/img_mob"
-                    android:layout_width="30dp"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/lin_1"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="15dp"
-                    android:contentDescription="TODO"
-
-                    app:srcCompat="@drawable/sidemenu" />
-
-                <LinearLayout
-                    android:id="@+id/lin_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/lin_1"
-                    android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@id/img_mob"
-                    android:layout_toRightOf="@id/img_mob"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/call"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="8dp"
-                        android:text="Features of the app include :"
-                        android:textColor="#0277BD"
-                        android:textColorHighlight="@android:color/holo_red_dark"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Admin Login "
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Entry / Exit of Vehicles "
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-
-                    <TextView
-                        android:id="@+id/feedback"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Face Scanning &amp; Detection"
-                        android:textColor="@color/black"
-                        android:textColorHighlight="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Number Plate Scanning &amp; Detection"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/send_your_message"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Display Reports"
-                        android:textColor="@color/black"
-                        android:textColorHighlight="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/mail_img"
-                    android:layout_width="30dp"
-                    android:layout_height="60dp"
-                    android:layout_below="@id/lin_2"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="15dp"
-                    android:contentDescription="TODO"
-
-                    app:srcCompat="@drawable/sidemenu" />
-
-                <LinearLayout
-                    android:id="@+id/lin_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/lin_2"
-                    android:layout_marginTop="15dp"
-                    android:layout_toEndOf="@id/mail_img"
-                    android:layout_toRightOf="@id/mail_img"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Core Concepts Used :"
-                        android:textColor="#0277BD"
-                        android:textColorHighlight="#FF0000"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Image Processing"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Model Building"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="Machine Learning &amp; Deep Learning"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginTop="0dp"
-                        android:text="User Interface Design"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -292,16 +107,30 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card_view"
-        app:srcCompat="@drawable/smarteye" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="151dp"
+        android:layout_height="88dp"
+        android:layout_below="@+id/card_view"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/smart_eye_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-black"
+        android:text="SMART EYE"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
