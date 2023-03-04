@@ -12,22 +12,22 @@
         android:id="@+id/signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
         android:text="LOG IN"
         android:textColor="@color/black"
-        android:textSize="35dp"
+        android:textSize="45dp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="381dp"
+        android:layout_width="match_parent"
         android:layout_height="66dp"
         android:layout_below="@id/signin"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="71dp"
         android:layout_marginEnd="10dp"
@@ -36,16 +36,18 @@
         android:drawablePadding="20dp"
         android:ellipsize="start"
         android:hint="Username"
-        android:textAlignment="center"
         android:padding="20dp"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:textSize="20sp" />
+
     <EditText
         android:id="@+id/password"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="66dp"
         android:layout_below="@id/username"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="10dp"
@@ -56,9 +58,9 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="20dp"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textAlignment="center"
         android:textSize="20sp" />
 
     <com.google.android.material.button.MaterialButton
@@ -68,9 +70,9 @@
         android:layout_below="@id/password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#7E8FEE"
         android:text="LOGIN"
-        android:textColor="@color/white" />
+        android:textColor="@color/black" />
 
 
     <TextView
@@ -83,25 +85,42 @@
         android:onClick="openScanningActivity"
         android:text="Are you an Operator?Click Here"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/socialicons"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginBottom="48dp"-->
-<!--        android:gravity="center" />-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/socialicons"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginBottom="48dp"-->
+    <!--        android:gravity="center" />-->
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="178dp"
-        android:layout_height="146dp"
+        android:layout_width="wrap_content"
+        android:layout_height="158dp"
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="6dp"
+        android:layout_marginRight="-38dp"
         app:srcCompat="@drawable/loginphoto" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="251dp"
+        app:srcCompat="@drawable/emailicon" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="345dp"
+        app:srcCompat="@drawable/lockicon" />
 
 
 </RelativeLayout>
