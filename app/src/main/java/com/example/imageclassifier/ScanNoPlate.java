@@ -300,12 +300,12 @@ public class ScanNoPlate extends AppCompatActivity {
 
     private void detectText()
     {
-        Bitmap detectedNoPlate = detectNoPlate(NoPlatebitmap);
-        if(detectedNoPlate == null)
-        {
-            detectedNoPlate = NoPlatebitmap; // so we will overwrite with original image if no noplate is detected
-        }
-        InputImage image = InputImage.fromBitmap(detectedNoPlate,0);
+//        Bitmap detectedNoPlate = detectNoPlate(NoPlatebitmap);
+//        if(detectedNoPlate == null)
+//        {
+//            detectedNoPlate = NoPlatebitmap; // so we will overwrite with original image if no noplate is detected
+//        }
+        InputImage image = InputImage.fromBitmap(NoPlatebitmap,0);
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
         Task<Text> result = recognizer.process(image).addOnSuccessListener(new OnSuccessListener<Text>() {
             @Override

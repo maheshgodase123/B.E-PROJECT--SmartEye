@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.imageclassifier.ml.Model2;
+import com.example.imageclassifier.ml.Ronaldomessipankaj;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
@@ -160,7 +161,8 @@ public class ImageRecognition extends AppCompatActivity{
                 {
                     try {
                         //FaceRecModel model = FaceRecModel.newInstance(getApplicationContext());
-                        Model2 model = Model2.newInstance(ImageRecognition.this);
+                        //Model2 model = Model2.newInstance(ImageRecognition.this);
+                        Ronaldomessipankaj model = Ronaldomessipankaj.newInstance(ImageRecognition.this);
 
                         // Creates inputs for reference.
                         //TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -196,7 +198,8 @@ public class ImageRecognition extends AppCompatActivity{
 
                         // Runs model inference and gets result.
 
-                        Model2.Outputs outputs = model.process(inputFeature0);
+                        //Model2.Outputs outputs = model.process(inputFeature0);
+                        Ronaldomessipankaj.Outputs outputs = model.process(inputFeature0);
 
                         TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
@@ -207,22 +210,25 @@ public class ImageRecognition extends AppCompatActivity{
                         String id = "";
                         if(confidence_value[0] <= 0.5)
                         {
-                            id = "Courteney_Cox";
+                            id = "Cristiano Ronaldo";
                         }
-                        else if(confidence_value[0] >= 1 && confidence_value[0] <= 1.5)
+                        else if(confidence_value[0] >= 0.9 && confidence_value[0] <= 1.5)
                         {
-                            id = "Jennifer_Aniston";
+                            id = "Manoj Bajpayee";
                         }
-                        else if(confidence_value[0] >= 2 && confidence_value[0] <= 2.5)
+                        else if(confidence_value[0] >= 1.9 && confidence_value[0] <= 2.5)
                         {
-                            id = "Lisa_Kudrow";
+                            id = "Lionel Messi";
+                        }
+                        else if(confidence_value[0] >= 2.9 && confidence_value[0] <= 3.5)
+                        {
+                            id = "Pankaj Tripathi";
                         }
                         else
                         {
                             id = "Cant Recognize";
                         }
 
-                        System.out.println(Arrays.toString(confidence_value));
                         result.setText(id);
                         // Releases model resources if no longer used.
                         model.close();
