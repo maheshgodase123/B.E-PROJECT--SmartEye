@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/drawable/search_view_bg.xml" value="0.2385" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/activity_about_us.xml" value="0.23229166666666667" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/activity_image_recognition.xml" value="0.23229166666666667" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/activity_login.xml" value="0.23229166666666667" />
@@ -12,6 +13,7 @@
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/activity_scanning.xml" value="0.23229166666666667" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/activity_show_database.xml" value="0.23229166666666667" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/item.xml" value="0.23125" />
+        <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/search_view_bg.xml" value="0.23125" />
         <entry key="..\:/B.E/TFLITE/ImageClassifier/app/src/main/res/layout/spinner_item.xml" value="0.23125" />
       </map>
     </option>

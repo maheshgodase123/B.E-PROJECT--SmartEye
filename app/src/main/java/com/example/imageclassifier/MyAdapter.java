@@ -36,7 +36,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.Driver.setText(model.getDriver());
         holder.NoPlate.setText(model.getNoPlate());
         holder.Status.setText(model.getStatus());
-        holder.DateTime.setText(model.getDateTime());
+        holder.Date.setText(model.getDate());
+        holder.Time.setText(model.getTime());
 
     }
 
@@ -47,7 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView Driver,NoPlate,Status,DateTime;
+        TextView Driver,NoPlate,Status,Date,Time;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,7 +56,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Driver = itemView.findViewById(R.id.PersonName);
             NoPlate = itemView.findViewById(R.id.vehicleNo);
             Status = itemView.findViewById(R.id.VehicleStatus);
-            DateTime = itemView.findViewById(R.id.DateTime);
+            Date = itemView.findViewById(R.id.Date);
+            Time = itemView.findViewById(R.id.Time);
 
         }
     }
