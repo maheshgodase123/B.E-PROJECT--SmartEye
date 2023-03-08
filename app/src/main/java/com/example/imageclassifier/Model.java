@@ -2,7 +2,7 @@ package com.example.imageclassifier;
 
 public class Model {
 
-    String Driver, NoPlate, Status, DateTime;
+    String Driver, NoPlate, Status, Date,Time;
 
     public String getDriver() {
         return Driver;
@@ -16,7 +16,11 @@ public class Model {
         return Status;
     }
 
-    public String getDateTime() {
-        return DateTime;
+    public String getDate() {
+        return Date;
+    }
+
+    public String getTime() {
+        return Time;
     }
 }

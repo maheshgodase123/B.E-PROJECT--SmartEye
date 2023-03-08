@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,7 +35,11 @@ public class activity_scanning extends AppCompatActivity {
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Users");
 
-    ArrayList<String> list = new ArrayList<>(Arrays.asList("21bh2345aa","dl7co19399","mh04jb8199","mh43bu9429","mh43pr2356","kl01cf7777","mh09bz3366"));
+    ArrayList<String> nameList = new ArrayList<>(Arrays.asList("Cristiano Ronaldo","Manoj Bajpayee","Lionel Messi","Pankaj Tripathi"));
+
+    ArrayList<String> vehicalList = new ArrayList<>(Arrays.asList("21bh2345aa","dl7co19399","mh04jb8199","mh43bu9429","mh43pr2356","mh09bz3366",
+                                                            "mh12qw9054","mh12tv9774","mh12tv9747","mh12aq4738","mh12aq4739","mh12ct7083",
+                                                            "mh12ua1556","mh12qw9057","mh12ct7074", "mh12rn9000"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,22 +109,30 @@ public class activity_scanning extends AppCompatActivity {
                 {
                     noplateVal = noplateVal.toLowerCase();
 
-                    if(!list.contains(noplateVal))  // check if noplate present in list or not if present then only allow vehicle
+                    if(!vehicalList.contains(noplateVal))  // check if noplate present in list or not if present then only allow vehicle
                     {
                         Toast.makeText(activity_scanning.this, "Vehicle Not Allowed !!", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(!nameList.contains(nameVal))
+                    {
+                        Toast.makeText(activity_scanning.this, "Unknown Driver !!", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
                         // getting todays date
                         Date c = Calendar.getInstance().getTime();
-                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss", Locale.getDefault());
+                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                        SimpleDateFormat df2 = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
                         String formattedDate = df.format(c);
+                        String formattedTime = df2.format(c);
 
                         HashMap<String,String> map = new HashMap<>();
                         map.put("Driver",nameVal);
                         map.put("NoPlate",noplateVal.toUpperCase());
                         map.put("Status",statusVal.toUpperCase());
-                        map.put("DateTime",formattedDate);
+                        map.put("Date",formattedDate);
+                        map.put("Time",formattedTime.toUpperCase());// as date gets formatted in small am and pm but i want AM and PM in capitals
+
 
                         root.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
