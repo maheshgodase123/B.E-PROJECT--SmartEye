@@ -17,6 +17,12 @@
         android:theme="@style/Theme.ImageClassifier"
         tools:targetApi="31">
         <activity
+            android:name=".manageVehicles"
+            android:exported="false" />
+        <activity
+            android:name=".showVehicles"
+            android:exported="false" />
+        <activity
             android:name=".showDatabase"
             android:exported="false" />
         <activity
@@ -42,7 +48,7 @@
             android:parentActivityName=".login" />
         <activity
             android:name=".login"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".LogoPage"
             android:exported="true">
