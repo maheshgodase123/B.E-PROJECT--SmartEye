@@ -15,8 +15,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,12 +38,13 @@ public class activity_scanning extends AppCompatActivity {
     Button saveToDataBase;
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("Users");
+    private DatabaseReference vehicles = db.getReference().child("Allowed_Vehicles");
 
     ArrayList<String> nameList = new ArrayList<>(Arrays.asList("Cristiano Ronaldo","Manoj Bajpayee","Lionel Messi","Pankaj Tripathi"));
 
-    ArrayList<String> vehicalList = new ArrayList<>(Arrays.asList("21bh2345aa","dl7co19399","mh04jb8199","mh43bu9429","mh43pr2356","mh09bz3366",
-                                                            "mh12qw9054","mh12tv9774","mh12tv9747","mh12aq4738","mh12aq4739","mh12ct7083",
-                                                            "mh12ua1556","mh12qw9057","mh12ct7074", "mh12rn9000"));
+//    ArrayList<String> vehicalList = new ArrayList<>(Arrays.asList("21bh2345aa","dl7co19399","mh04jb8199","mh43bu9429","mh43pr2356","mh09bz3366",
+//                                                            "mh12qw9054","mh12tv9774","mh12tv9747","mh12aq4738","mh12aq4739","mh12ct7083",
+//                                                            "mh12ua1556","mh12qw9057","mh12ct7074", "mh12rn9000"));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,38 +113,54 @@ public class activity_scanning extends AppCompatActivity {
                 else
                 {
                     noplateVal = noplateVal.toLowerCase();
-
-                    if(!vehicalList.contains(noplateVal))  // check if noplate present in list or not if present then only allow vehicle
-                    {
-                        Toast.makeText(activity_scanning.this, "Vehicle Not Allowed !!", Toast.LENGTH_SHORT).show();
-                    }
-                    else if(!nameList.contains(nameVal))
+                    if(!nameList.contains(nameVal))
                     {
                         Toast.makeText(activity_scanning.this, "Unknown Driver !!", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        // getting todays date
-                        Date c = Calendar.getInstance().getTime();
-                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-                        SimpleDateFormat df2 = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
-                        String formattedDate = df.format(c);
-                        String formattedTime = df2.format(c);
-
-                        HashMap<String,String> map = new HashMap<>();
-                        map.put("Driver",nameVal);
-                        map.put("NoPlate",noplateVal.toUpperCase());
-                        map.put("Status",statusVal.toUpperCase());
-                        map.put("Date",formattedDate);
-                        map.put("Time",formattedTime.toUpperCase());// as date gets formatted in small am and pm but i want AM and PM in capitals
-
-
-                        root.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        Query query = vehicles.orderByValue().equalTo(noplateVal);
+                        String finalNoplateVal = noplateVal;
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(activity_scanning.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                if(snapshot.exists())
+                                {
+                                    // getting todays date
+                                    Date c = Calendar.getInstance().getTime();
+                                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                                    SimpleDateFormat df2 = new SimpleDateFormat("hh:mm:ss a", Locale.getDefault());
+                                    String formattedDate = df.format(c);
+                                    String formattedTime = df2.format(c);
+
+                                    HashMap<String,String> map = new HashMap<>();
+                                    map.put("Driver",nameVal);
+                                    map.put("NoPlate", finalNoplateVal.toUpperCase());
+                                    map.put("Status",statusVal.toUpperCase());
+                                    map.put("Date",formattedDate);
+                                    map.put("Time",formattedTime.toUpperCase());// as date gets formatted in small am and pm but i want AM and PM in capitals
+
+
+                                    root.push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(activity_scanning.this, "Data Saved", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    Toast.makeText(activity_scanning.this, "Vehicle Not Allowed !!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
                             }
                         });
+
                     }
 
                 }
@@ -171,5 +192,4 @@ public class activity_scanning extends AppCompatActivity {
 
         }
     }
-
 }
