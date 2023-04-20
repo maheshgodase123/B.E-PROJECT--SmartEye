@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="#C5D0FF"
+    android:background="#FEE9A3"
     tools:context=".activity_scanning"
     tools:ignore="ExtraText">
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:background="#FFFFFF">
+        android:background="#FFFF">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/imageFilterView"
@@ -25,7 +25,7 @@
             android:layout_marginEnd="114dp"
             android:layout_marginBottom="7dp"
             android:foregroundGravity="center_horizontal"
-            app:srcCompat="@drawable/smart_eye_logo" />
+            app:srcCompat="@drawable/smart_eye_latest_logo" />
 
         <TextView
             android:id="@+id/textView2"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#7E8FEE"
+            app:cardBackgroundColor="#7EEDAD"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -69,7 +69,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
-                    android:backgroundTint="#C5D0FF"
+                    android:backgroundTint="#FEE9A3"
                     android:cropToPadding="true"
                     app:srcCompat="@drawable/face" />
 
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#7E8FEE"
+            app:cardBackgroundColor="#7EEDAD"
             app:cardElevation="5dp"
             app:cardMaxElevation="5dp">
 
@@ -109,7 +109,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
                     android:adjustViewBounds="true"
-                    android:backgroundTint="#C5D0FF"
+                    android:backgroundTint="#FEE9A3"
                     android:cropToPadding="true"
                     app:srcCompat="@drawable/noplate7" />
 
@@ -122,7 +122,7 @@
                     android:layout_alignParentBottom="false"
                     android:layout_centerInParent="true"
                     android:fontFamily="sans-serif-black"
-                    android:text="NO.PLATE SCAN"
+                    android:text="NO. PLATE SCAN"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -141,6 +141,7 @@
         android:hint="Person Name"
         android:textColor="#010101"
         android:textColorHint="#000000"
+        android:textStyle="bold"
         android:textSize="24dp" />
 
     <TextView
@@ -153,6 +154,7 @@
         android:hint="Number Plate"
         android:textColor="#010101"
         android:textColorHint="#000000"
+        android:textStyle="bold"
         android:textSize="24dp" />
 
 
@@ -164,6 +166,7 @@
         android:layout_marginStart="157dp"
         android:layout_marginTop="25dp"
         android:spinnerMode="dropdown"
+        android:textStyle="bold"
         android:textAlignment="center" />
 
     <Button
@@ -173,7 +176,8 @@
         android:layout_below="@+id/VeihicleStatus"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:backgroundTint="#7E8FEE"
+        android:backgroundTint="#7EEDAD"
+        app:cornerRadius="8dp"
         android:text="Submit"
         android:textColor="#000000" />
 
