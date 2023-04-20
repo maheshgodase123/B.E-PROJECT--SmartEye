@@ -75,6 +75,10 @@ public class manageVehicles extends AppCompatActivity {
                         }
                     });
                 }
+                else
+                {
+                    Toast.makeText(manageVehicles.this, "Invalid Vehicle Number !!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -157,6 +161,53 @@ public class manageVehicles extends AppCompatActivity {
             return null;
         }
 
-        return formattedNumber.toString();
+        return checkValid(formattedNumber.toString());
+    }
+
+    private String checkValid(String formattedNumber){
+
+        if(checkCharacter(formattedNumber.charAt(0)) && checkCharacter(formattedNumber.charAt(1))){
+            if(checkNumber(formattedNumber.charAt(2)) && checkNumber(formattedNumber.charAt(3))){
+                if(checkCharacter(formattedNumber.charAt(4)) && checkCharacter(formattedNumber.charAt(5))){
+                    if(checkNumber(formattedNumber.charAt(6)) && checkNumber(formattedNumber.charAt(7)) && checkNumber(formattedNumber.charAt(8)) && checkNumber(formattedNumber.charAt(9))){
+                        return formattedNumber;
+                    }
+                    else{
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private boolean checkCharacter(char inputChar){
+        if((inputChar >= 'a' && inputChar <= 'z') || (inputChar >= 'A' && inputChar <= 'Z'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean checkNumber(char inputChar){
+
+        if(inputChar >= '0' && inputChar <= '9')
+        {
+            return true;
+        }
+
+        return false;
     }
 }

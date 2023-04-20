@@ -243,7 +243,7 @@ public class ScanNoPlate extends AppCompatActivity {
         {
             e.printStackTrace();
         }
-        if(licensePlateDetector != null)   // checking if haarcascade loaded or not
+        if(licensePlateDetector != null)   // checking if harcascade loaded or not
         {
             // if loaded detect faces
             Mat grayImage = new Mat();
@@ -280,11 +280,11 @@ public class ScanNoPlate extends AppCompatActivity {
 
         for(int i = 0; i < number.length(); i++)
         {
-            if((number.charAt(i) >= 'a' && number.charAt(i) <= 'z') || (number.charAt(i) >= 'A' && number.charAt(i) <= 'Z'))
+            if(checkCharacter(number.charAt(i)))
             {
                 formattedNumber.append(number.charAt(i));
             }
-            else if((number.charAt(i) >= '0' && number.charAt(i) <= '9'))
+            else if(checkNumber(number.charAt(i)))
             {
                 formattedNumber.append(number.charAt(i));
             }
@@ -295,9 +295,55 @@ public class ScanNoPlate extends AppCompatActivity {
             return null;
         }
 
-        return formattedNumber.toString();
+        return checkValid(formattedNumber.toString());
     }
 
+    private String checkValid(String formattedNumber){
+
+        if(checkCharacter(formattedNumber.charAt(0)) && checkCharacter(formattedNumber.charAt(1))){
+            if(checkNumber(formattedNumber.charAt(2)) && checkNumber(formattedNumber.charAt(3))){
+                if(checkCharacter(formattedNumber.charAt(4)) && checkCharacter(formattedNumber.charAt(5))){
+                    if(checkNumber(formattedNumber.charAt(6)) && checkNumber(formattedNumber.charAt(7)) && checkNumber(formattedNumber.charAt(8)) && checkNumber(formattedNumber.charAt(9))){
+                        return formattedNumber;
+                    }
+                    else{
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private boolean checkCharacter(char inputChar){
+        if((inputChar >= 'a' && inputChar <= 'z') || (inputChar >= 'A' && inputChar <= 'Z'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean checkNumber(char inputChar){
+
+        if(inputChar >= '0' && inputChar <= '9')
+        {
+            return true;
+        }
+
+        return false;
+    }
     private void detectText()
     {
 //        Bitmap detectedNoPlate = detectNoPlate(NoPlatebitmap);

@@ -1,215 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:background="#C5D0FF"
-    tools:context=".MainActivity"
-    tools:ignore="ExtraText">
+    android:orientation="vertical"
+    android:background="@drawable/bg">
 
     <RelativeLayout
-        android:id="@+id/frame"
-        android:layout_width="325dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="#FFFFFF">
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageFilterView"
-            android:layout_width="118dp"
-            android:layout_height="112dp"
-            android:layout_marginStart="114dp"
-            android:layout_marginEnd="114dp"
-            android:layout_marginBottom="7dp"
-            android:foregroundGravity="center_horizontal"
-            app:srcCompat="@drawable/smart_eye_logo" />
+        android:padding="30dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/hello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageFilterView"
-            android:layout_marginStart="73dp"
-            android:layout_marginEnd="77dp"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:text="The Vehicle Surveillance System"
-            android:textColor="#000000"
-            android:textStyle="bold" />
+            android:text="SMART EYE"
+            android:textColor="#fff"
+            android:textSize="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Vehicle survelliance System"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:textSize="18dp"
+            android:layout_below="@id/hello"
+            android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_below="@+id/frame"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardBackgroundColor="#7E8FEE"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="5dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/scanButton"
+                android:layout_width="170dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:src="@drawable/backend" />
 
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="125dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="20dp"
-                    android:adjustViewBounds="true"
-                    android:backgroundTint="#FFFFFF"
-                    android:cropToPadding="true"
-                    android:onClick="openScanningActivity"
-                    app:srcCompat="@drawable/face" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="50dp"
+                android:text="SCAN"
+                android:textColor="#d703082b"
+                android:textSize="22dp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imageButton"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="sans-serif-black"
-                    android:text="SCAN"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardBackgroundColor="#7E8FEE"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="5dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        </RelativeLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="150dp"
-                    android:layout_height="125dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:adjustViewBounds="true"
-                    android:backgroundTint="#FFFFFF"
-                    android:cropToPadding="true"
-                    android:outlineAmbientShadowColor="#CDAB68"
-                    app:srcCompat="@drawable/reports" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imageButton2"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="sans-serif-black"
-                    android:text="REPORTS"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/reportsButton"
+                android:layout_width="170dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="5dp"
+                android:clickable="true"
+                android:src="@drawable/frontend" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="50dp"
+                android:text="REPORTS"
+                android:textColor="#d703082b"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
     </LinearLayout>
 
-    // THIS IS THIRD MENU
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        tools:layout_editor_absoluteX="0dp">
 
-        <androidx.cardview.widget.CardView
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/manageButton"
+            android:layout_width="380dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cv4"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/manage3" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="0"
-            app:cardBackgroundColor="#7E8FEE"
-            app:cardElevation="5dp"
-            app:cardMaxElevation="5dp">
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="20dp"
+            android:text="MANAGE VEHICLES"
+            android:textColor="#d703082b"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="190dp"
-                android:layout_height="match_parent">
+    </RelativeLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="125dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="20dp"
-                    android:adjustViewBounds="true"
-                    android:backgroundTint="#FFFFFF"
-                    android:cropToPadding="true"
-                    android:onClick="openAboutUsActivity"
-                    app:srcCompat="@drawable/aboutus2" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imageButton4"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="sans-serif-black"
-                    android:text="ABOUT APP"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#7E8FEE"
-        android:text="Logout"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+        android:layout_marginTop="3dp">
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="#7E8FEE"
-        android:text="Manage Vehicles"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/aboutappButton"
+            android:layout_width="380dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cv2" />
 
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/contactus" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="32dp"
+            android:text="ABOUT APP"
+            android:textColor="#d703082b"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logoutButton"
+            android:layout_width="380dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cv4"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="32dp"
+            android:text="LOG OUT"
+            android:textColor="#d703082b"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</LinearLayout>

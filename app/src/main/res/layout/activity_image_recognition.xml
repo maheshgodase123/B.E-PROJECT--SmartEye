@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C5D0FF"
+    android:background="#FEE9A3"
     tools:context=".ImageRecognition">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-41dp"
+        app:srcCompat="@drawable/ellipsehome" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="250dp"
+        app:srcCompat="@drawable/ellipsehome1" />
 
     <TextView
         android:id="@+id/title"
@@ -34,9 +49,10 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#7E8FEE"
+        android:backgroundTint="#7EEDAD"
         android:text="Select Image"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:cornerRadius="8dp"/>
 
     <Button
         android:id="@+id/capturebtn"
@@ -45,9 +61,10 @@
         android:layout_below="@+id/selectbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#7E8FEE"
+        android:backgroundTint="#7EEDAD"
         android:text="Capture Image"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:cornerRadius="8dp"/>
 
     <Button
         android:id="@+id/verifybtn"
@@ -56,9 +73,10 @@
         android:layout_below="@+id/capturebtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#7E8FEE"
+        android:backgroundTint="#7EEDAD"
         android:text="Verify Image"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:cornerRadius="8dp"/>
 
 
     <EditText
@@ -68,8 +86,7 @@
         android:layout_below="@+id/verifybtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Results"
-
+        android:hint="Results"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="normal|bold" />
@@ -81,9 +98,23 @@
         android:layout_below="@+id/result"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:backgroundTint="#7E8FEE"
+        android:backgroundTint="#7EEDAD"
         android:text="Confirm"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:cornerRadius="8dp"/>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="105dp"
+        android:layout_height="237dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="-26dp"
+        android:layout_marginEnd="-54dp"
+        android:layout_marginBottom="-11dp"
+        android:layout_toEndOf="@+id/imageView"
+        android:src="@drawable/character2" />
 
 
 </RelativeLayout>

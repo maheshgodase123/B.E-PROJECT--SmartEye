@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEE9A3"
     tools:context=".manageVehicles">
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="385dp"
+        android:layout_height="304dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+
+        app:srcCompat="@drawable/rectangle11" />
 
     <EditText
         android:id="@+id/AddNo"
@@ -12,7 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
-        android:hint="Vehicle No To Add/Delete" />
+        android:hint="Vehicle No"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/AddNoBtn"
@@ -21,7 +34,10 @@
         android:layout_below="@+id/AddNo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Add To Database" />
+        android:backgroundTint="#7EEDAD"
+        android:text="Add To Database"
+        android:textColor="#000000"
+        app:cornerRadius="8dp" />
 
     <Button
         android:id="@+id/DeleteBtn"
@@ -30,7 +46,10 @@
         android:layout_below="@+id/AddNoBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Delete From Database" />
+        android:text="Delete From Database"
+        android:backgroundTint="#7EEDAD"
+        android:textColor="#000000"
+        app:cornerRadius="8dp"/>
 
     <Button
         android:id="@+id/noplateDatabase"
@@ -38,7 +57,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/DeleteBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
-        android:text="Show Vehicles" />
+        android:layout_marginTop="300dp"
+        android:backgroundTint="#7EEDAD"
+        android:text="Show Vehicles"
+        android:textColor="#000000"
+        app:cornerRadius="8dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="340dp"
+        android:layout_height="430dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="235dp"
+        app:srcCompat="@drawable/manageimage" />
+
+
 
 </RelativeLayout>

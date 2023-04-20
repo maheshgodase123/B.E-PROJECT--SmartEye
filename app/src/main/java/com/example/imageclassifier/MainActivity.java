@@ -6,30 +6,52 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    ImageButton records;
-    Button manageVehiclesBtn, logout;
-
+    ImageView scan,manageVehiclesBtn,records,aboutapp,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        manageVehiclesBtn = findViewById(R.id.button5);
-        logout = findViewById(R.id.button3);
-        records = findViewById(R.id.imageButton2);
+        scan = findViewById(R.id.scanButton);
+        manageVehiclesBtn = findViewById(R.id.manageButton);
+        logout = findViewById(R.id.logoutButton);
+        aboutapp = findViewById(R.id.aboutappButton);
+        records = findViewById(R.id.reportsButton);
         mAuth = FirebaseAuth.getInstance();
 
+
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,activity_scanning.class));
+            }
+        });
+
+        records.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,showDatabase.class));
+            }
+        });
 
         manageVehiclesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,manageVehicles.class));
+            }
+        });
+
+        aboutapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,AboutUs.class));
             }
         });
 
@@ -41,23 +63,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        records.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,showDatabase.class));
-            }
-        });
-    }
-
-    public void openScanningActivity(View v)
-    {
-        Intent intent = new Intent(this,activity_scanning.class);
-        startActivity(intent);
-    }
-    public void openAboutUsActivity(View v)
-    {
-        Intent intent = new Intent(this,AboutUs.class);
-        startActivity(intent);
     }
 }

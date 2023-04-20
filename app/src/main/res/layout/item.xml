@@ -6,7 +6,7 @@
     android:layout_margin="10dp"
 
     android:padding="10dp"
-    app:cardBackgroundColor="#C5D0FF"
+    app:cardBackgroundColor="#FEE9A3"
     app:cardCornerRadius="10dp"
     app:cardElevation="8dp">
 
@@ -86,9 +86,8 @@
                 android:id="@+id/VehicleStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
+                android:layout_marginStart="53dp"
                 android:hint="IN/OUT"
-                android:textAlignment="center"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
@@ -113,7 +112,7 @@
                 android:id="@+id/Date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="73dp"
+                android:layout_marginStart="66dp"
                 android:hint="25-Feb-2023"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -138,7 +137,7 @@
                 android:id="@+id/Time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
+                android:layout_marginStart="64dp"
                 android:hint="12:00:00"
                 android:textSize="17sp"
                 android:textStyle="bold" />
