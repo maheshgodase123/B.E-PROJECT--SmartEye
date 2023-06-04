@@ -57,7 +57,6 @@ public class activity_scanning extends AppCompatActivity {
         scanNoPlate = findViewById(R.id.imageButton);
         saveToDataBase = findViewById(R.id.saveToDatabase);
 
-
 //        you’ll have to create an ArrayAdapter.
 //        The ArrayAdapter will be responsible for rendering every item in the languages string array to the screen when the Java dropdown menu is accessed.
 
